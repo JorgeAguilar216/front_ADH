@@ -1,0 +1,17 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="ProductId"
+    [value]="service.formData.productId" />
+    <div class="form-group">
+        <label>PRODUCTO</label>
+        <input class="form-control form-control-lg" placeholder="Digita nombre del Producto" name="Name"
+        #Name="ngModel" [(ngModel)]="service.formData.name">
+    </div>
+    <div class="form-group">
+        <label>VALOR UNITARIO</label>
+        <input class="form-control form-control-lg" placeholder="Unit Value" name="ValueU"
+        #ValueU="ngModel" [(ngModel)]="service.formData.valueU">
+    </div>
+    <div class="form-group" style="margin: 10px">
+        <button class="btn btn-outline-success btn-block" type="submit" [disabled]="form.invalid">Enviar</button>
+    </div>
+</form>

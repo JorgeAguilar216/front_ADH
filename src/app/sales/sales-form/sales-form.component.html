@@ -1,0 +1,44 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="salesId"
+    [value]="service.formData.salesId" />
+    <div class="form-group">
+        <label >PRODUCTO</label>
+        <select class="form-control" name="productId"
+        #productId="ngModel" [(ngModel)]="service.formData.productId" 
+        (change)="onChange(service.formData.productId)">
+            <option [value]="dato.productId" *ngFor="let dato of service.products">
+                {{dato.name}}
+            </option>
+        </select>
+        <!-- <input type="text" [value]="service.formData.productId"> -->
+    </div>
+
+    <div class="form-group">
+        <label >CLIENTE</label>
+        <select class="form-control" name="clientId"
+        #clientId="ngModel" [(ngModel)]="service.formData.clientId">
+            <option [value]="dato.clientId" *ngFor="let dato of service.clients">
+                {{dato.name}}
+            </option>
+        </select>
+        <!-- <input type="text" [value]="service.formData.clientId"> -->
+    </div>
+    <div class="form-group">
+        <label>CANTIDAD</label>
+        <input class="form-control form-control-lg" placeholder="Cantidad" name="cantidad"
+        #cantidad="ngModel" [(ngModel)]="service.formData.cantidad">
+    </div>
+    <div class="form-group">
+        <label>VALOR UNITARIO</label>
+        <input class="form-control form-control-lg" placeholder="Valor Unitario" name="valorU"
+        #valorU="ngModel" [(ngModel)]="valorunitario" >
+    </div>
+    <div class="form-group">
+        <label>VALOR TOTAL</label>
+        <p class="form-control form-control-lg" placeholder="Valor Unitario">
+        {{service.formData.cantidad*valorunitario}}</p>
+    </div>
+    <div class="form-group" style="margin: 10px">
+        <button class="btn btn-outline-success btn-block" type="submit" [disabled]="form.invalid">Enviar</button>
+    </div>
+</form>

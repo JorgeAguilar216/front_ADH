@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row mb-3">
+        <div class="jumbotron">
+            <h1 class="display-6 text-center">Registro de Ventas</h1>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-outline-primary btn-space">
+                <a href="http://localhost:4200/products" style="color:inherit">Productos</a>
+            </button>
+            <button type="button" class="btn btn-outline-primary btn-space">
+                <a href="http://localhost:4200/clients" style="color:inherit">Clientes</a>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Card Name</th>
+                    <th>Unit Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of service.products">
+                    <td (click)="populateproduct(p)">{{p.name}}</td>
+                    <td (click)="populateproduct(p)">{{p.valueU}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Card Name</th>
+                    <th>Card LastName</th>
+                    <th>CC</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of service.clients">
+                    <td (click)="populateclient(c)">{{c.name}}</td>
+                    <td (click)="populateclient(c)">{{c.lastName}}</td>
+                    <td (click)="populateclient(c)">{{c.cedula}}</td>
+                    <td (click)="populateclient(c)" >{{c.phone}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
+<div class="row">
+    <div class="col-md-6">
+        <app-sales-form></app-sales-form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Cliente</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Valor U</th>
+                    <th>Valor T</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of service.list; let index_item = index">
+                    <td (click)="populateForm(s)">{{service.namesclients[index_item]}}</td>
+                    <td (click)="populateForm(s)">{{service.namesproducts[index_item]}}</td>
+                    <td (click)="populateForm(s)">{{s.cantidad}}</td>
+                    <td (click)="populateForm(s)">{{s.valorU}}</td>
+                    <td (click)="populateForm(s)">{{s.valorT}}</td>
+                    <td>
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(s.salesId)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
